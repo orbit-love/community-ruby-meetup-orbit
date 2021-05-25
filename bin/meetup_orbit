@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+require 'optparse'
+
+check_rsvps = false
+
+options = {}
+choices = OptionParser.new do |opts|
+  opts.banner = "Usage: meetup_orbit --check-rsvps"
+  opts.on("-h", "--help", "Prints help instructions") do
+    puts opts
+    exit
+  end
+  opts.on("--check-rsvps", "Check for new Meetup event RSVPs") do
+    check_notes = true
+  end
+end.parse!
+
+$LOAD_PATH.unshift(File.expand_path('../lib/meetup_orbit', __dir__))
+
+require_relative '../lib/meetup_orbit'
+require_relative '../scripts/check_rsvps'
+
+if check_rsvps
+  puts "Checking for new Meetup event RSVPs and posting them to your Orbit workspace..."
+  ARGV[0] = 'render'
+  MeetupOrbit::Scripts::CheckRsvps.start(ARGV)
+end
