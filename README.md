@@ -6,6 +6,8 @@
 
 Add your Meetup interactions into your Orbit workspace with this community-built integration.
 
+![New RSVP in Orbit screenshot](readme-images/new-rsvp-screenshot.png)
+
 |<p align="left">:sparkles:</p> This is a *community project*. The Orbit team does its best to maintain it and keep it up to date with any recent API changes.<br/><br/>We welcome community contributions to make sure that it stays current. <p align="right">:sparkles:</p>|
 |-----------------------------------------|
 
