@@ -11,7 +11,7 @@ choices = OptionParser.new do |opts|
     exit
   end
   opts.on("--check-rsvps", "Check for new Meetup event RSVPs") do
-    check_notes = true
+    check_rsvps = true
   end
 end.parse!
 
