@@ -22,4 +22,36 @@ RSpec.describe MeetupOrbit::Client do
 
     expect(MeetupOrbit::Client).to be_truthy
   end
+
+  it "raises an exception of meetup urlname parameter is a URL starting with https" do
+    expect { client = MeetupOrbit::Client.new(
+      orbit_api_key: "12345",
+      orbit_workspace: "test",
+      meetup_urlname: "https://www.meetup.com/test-123"
+    ) }.to raise_error(ArgumentError, "'meetup_urlname' parameter must only be the unique identifier of your meetup not the entire URL. Please refer to the README for more details.")
+  end
+
+  it "raises an exception of meetup urlname parameter is a URL starting with http" do
+    expect { client = MeetupOrbit::Client.new(
+      orbit_api_key: "12345",
+      orbit_workspace: "test",
+      meetup_urlname: "http://www.meetup.com/test-123"
+    ) }.to raise_error(ArgumentError, "'meetup_urlname' parameter must only be the unique identifier of your meetup not the entire URL. Please refer to the README for more details.")
+  end
+
+  it "raises an exception of meetup urlname parameter is a URL starting with www" do
+    expect { client = MeetupOrbit::Client.new(
+      orbit_api_key: "12345",
+      orbit_workspace: "test",
+      meetup_urlname: "www.meetup.com/test-123"
+    ) }.to raise_error(ArgumentError, "'meetup_urlname' parameter must only be the unique identifier of your meetup not the entire URL. Please refer to the README for more details.")
+  end
+
+  it "raises an exception of meetup urlname parameter is a URL starting with meetup.com" do
+    expect { client = MeetupOrbit::Client.new(
+      orbit_api_key: "12345",
+      orbit_workspace: "test",
+      meetup_urlname: "meetup.com/test-123"
+    ) }.to raise_error(ArgumentError, "'meetup_urlname' parameter must only be the unique identifier of your meetup not the entire URL. Please refer to the README for more details.")
+  end
 end
