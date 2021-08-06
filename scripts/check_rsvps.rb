@@ -8,8 +8,8 @@ module MeetupOrbit
   module Scripts
     class CheckRsvps < Thor
       desc "render", "check for new Meetup event RSVPs and push them to Orbit"
-      def render
-        client = MeetupOrbit::Client.new
+      def render(*params)
+        client = MeetupOrbit::Client.new(historical_import: params[0])
         client.event_rsvps
       end
     end
