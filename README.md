@@ -53,6 +53,15 @@ client = MeetupOrbit::Client.new(
 ```ruby
 client = MeetupOrbit::Client.new
 ```
+### Performing a Historical Import
+
+You may want to perform a one-time historical import to fetch all your previous Meetup interactions and bring them into your Orbit workspace. To do so, instantiate your `client` with the `historical_import` flag:
+
+```ruby
+client = MeetupOrbit::Client.new(
+  historical_import: true
+)
+```
 ### Fetching New Event RSVPs
 
 Once, you have an instantiated client, you can fetch new Meetup event RSVPs and add them to your Orbit workspace by invoking the `#event_rsvps` method on the client:
@@ -69,6 +78,8 @@ To check for new event RSVPs:
 ```bash
 $ ORBIT_API_KEY=... ORBIT_WORKSPACE_ID=... MEETUP_URLNAME=... bundle exec meetup_orbit --check-rsvps
 ```
+
+**Add the `--historical-import` flag to your CLI command to perform a historical import of all your Meetup interactions using the CLI.**
 
 ## GitHub Actions Automation Setup
 

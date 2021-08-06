@@ -2,6 +2,7 @@
 require 'optparse'
 
 check_rsvps = false
+historical_import = false
 
 options = {}
 choices = OptionParser.new do |opts|
@@ -13,6 +14,9 @@ choices = OptionParser.new do |opts|
   opts.on("--check-rsvps", "Check for new Meetup event RSVPs") do
     check_rsvps = true
   end
+  opts.on("--historical-import", "Perform a historical import of all Meetup interactions") do
+    historical_import = true
+  end
 end.parse!
 
 $LOAD_PATH.unshift(File.expand_path('../lib/meetup_orbit', __dir__))
@@ -23,5 +27,6 @@ require_relative '../scripts/check_rsvps'
 if check_rsvps
   puts "Checking for new Meetup event RSVPs and posting them to your Orbit workspace..."
   ARGV[0] = 'render'
+  ARGV[1] = historical_import
   MeetupOrbit::Scripts::CheckRsvps.start(ARGV)
 end
