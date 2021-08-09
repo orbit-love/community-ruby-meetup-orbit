@@ -22,11 +22,11 @@ module MeetupOrbit
 
         rsvps.drop(1).each do |rsvp| # skip first item which is event owner
             unless @historical_import && orbit_timestamp # rubocop:disable all
-                next if Time.at(rsvp["created"]).utc.to_s < orbit_timestamp unless orbit_timestamp.nil? # rubocop:disable all
+                next if Time.at(rsvp["created"] / 1000).utc.to_s < orbit_timestamp unless orbit_timestamp.nil? # rubocop:disable all
             end
 
             if orbit_timestamp && @historical_import == false
-                next if Time.at(rsvp["created"]).utc.to_s < orbit_timestamp # rubocop:disable all
+                next if Time.at(rsvp["created"] / 1000).utc.to_s < orbit_timestamp # rubocop:disable all
             end
 
             times += 1
@@ -39,7 +39,7 @@ module MeetupOrbit
                   group: rsvp["group"]["name"],
                   member_id: rsvp["member"]["id"],
                   member_name: rsvp["member"]["name"],
-                  occurred_at: Time.at(rsvp["created"]).utc.to_s,
+                  occurred_at: Time.at(rsvp["created"] / 1000).utc.to_s,
                   id: "#{rsvp["member"]["id"]}-#{rsvp["event"]["id"]}",
                   link: "https://meetup.com/#{@meetup_urlname}/events/#{rsvp["event"]["id"]}",
                   response: rsvp["response"]
