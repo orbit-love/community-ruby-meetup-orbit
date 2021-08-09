@@ -31,7 +31,7 @@ RSpec.describe MeetupOrbit::Meetup do
                   type: "spec_activity",
                   attributes: {
                     action: "spec_action",
-                    created_at: "2021-07-01T16:03:02.052Z",
+                    created_at: "2021-07-20T16:03:02.052Z",
                     key: "spec_activity_key#1",
                     occurred_at: "2021-04-01T16:03:02.050Z",
                     type: "SpecActivity",
@@ -70,7 +70,7 @@ RSpec.describe MeetupOrbit::Meetup do
       it "posts the newer items to the Orbit workspace from Meetup" do
         stub_request(:post, "https://app.orbit.love/api/v1/test/activities")
           .with(
-            body: "{\"activity\":{\"activity_type\":\"meetup:rsvp\",\"tags\":[\"channel:meetup\"],\"title\":\"New RSVP for An Event\",\"description\":\"Spock has registered for An Event in the Meetup Group Meetup group\\n\",\"occurred_at\":\"2021-06-27 21:00:00 UTC\",\"key\":\"abc1234-abc567\",\"link\":\"https://meetup.com/test-123/events/abc567\",\"member\":{\"name\":\"Spock\"}},\"identity\":{\"source\":\"meetup\",\"name\":\"Spock\",\"uid\":\"abc1234\"}}",
+            body: "{\"activity\":{\"activity_type\":\"meetup:rsvp\",\"tags\":[\"channel:meetup\"],\"title\":\"New RSVP for An Event\",\"description\":\"Spock has registered for An Event in the Meetup Group Meetup group\\n\",\"occurred_at\":\"2021-07-15 08:22:52 UTC\",\"key\":\"abc1234-abc567\",\"link\":\"https://meetup.com/test-123/events/abc567\",\"member\":{\"name\":\"Spock\"}},\"identity\":{\"source\":\"meetup\",\"name\":\"Spock\",\"uid\":\"abc1234\"}}",
             headers: {
               "Accept" => "application/json",
               "Authorization" => "Bearer 12345",
@@ -146,7 +146,7 @@ RSpec.describe MeetupOrbit::Meetup do
 
         stub_request(:post, "https://app.orbit.love/api/v1/test/activities")
           .with(
-            body: "{\"activity\":{\"activity_type\":\"meetup:rsvp\",\"tags\":[\"channel:meetup\"],\"title\":\"New RSVP for An Event\",\"description\":\"Spock has registered for An Event in the Meetup Group Meetup group\\n\",\"occurred_at\":\"2021-06-27 21:00:00 UTC\",\"key\":\"abc1234-abc567\",\"link\":\"https://meetup.com/test-123/events/abc567\",\"member\":{\"name\":\"Spock\"}},\"identity\":{\"source\":\"meetup\",\"name\":\"Spock\",\"uid\":\"abc1234\"}}",
+            body: "{\"activity\":{\"activity_type\":\"meetup:rsvp\",\"tags\":[\"channel:meetup\"],\"title\":\"New RSVP for An Event\",\"description\":\"Spock has registered for An Event in the Meetup Group Meetup group\\n\",\"occurred_at\":\"2021-07-15 08:22:52 UTC\",\"key\":\"abc1234-abc567\",\"link\":\"https://meetup.com/test-123/events/abc567\",\"member\":{\"name\":\"Spock\"}},\"identity\":{\"source\":\"meetup\",\"name\":\"Spock\",\"uid\":\"abc1234\"}}",
             headers: {
               "Accept" => "application/json",
               "Authorization" => "Bearer 12345",
@@ -161,7 +161,7 @@ RSpec.describe MeetupOrbit::Meetup do
 
         stub_request(:post, "https://app.orbit.love/api/v1/test/activities")
           .with(
-            body: "{\"activity\":{\"activity_type\":\"meetup:rsvp\",\"tags\":[\"channel:meetup\"],\"title\":\"New RSVP for Another Event\",\"description\":\"Spock has registered for Another Event in the Meetup Group Meetup group\\n\",\"occurred_at\":\"2021-07-19 21:00:00 UTC\",\"key\":\"abc1234-abc789\",\"link\":\"https://meetup.com/test-123/events/abc789\",\"member\":{\"name\":\"Spock\"}},\"identity\":{\"source\":\"meetup\",\"name\":\"Spock\",\"uid\":\"abc1234\"}}",
+            body: "{\"activity\":{\"activity_type\":\"meetup:rsvp\",\"tags\":[\"channel:meetup\"],\"title\":\"New RSVP for Another Event\",\"description\":\"Spock has registered for Another Event in the Meetup Group Meetup group\\n\",\"occurred_at\":\"2021-07-15 08:22:52 UTC\",\"key\":\"abc1234-abc789\",\"link\":\"https://meetup.com/test-123/events/abc789\",\"member\":{\"name\":\"Spock\"}},\"identity\":{\"source\":\"meetup\",\"name\":\"Spock\",\"uid\":\"abc1234\"}}",
             headers: {
               "Accept" => "application/json",
               "Authorization" => "Bearer 12345",
@@ -263,7 +263,7 @@ RSpec.describe MeetupOrbit::Meetup do
           "id" => "ignore_me",
           "name" => "Event Owner"
         },
-        "created" => 1624827600,
+        "created" => 1626337372000,
         "response" => "maybe"
       },
       {
@@ -278,7 +278,7 @@ RSpec.describe MeetupOrbit::Meetup do
           "id" => "abc1234",
           "name" => "Spock"
         },
-        "created" => 1624827600,
+        "created" => 1626337372000,
         "response" => "yes"
       }
     ]
@@ -298,7 +298,7 @@ RSpec.describe MeetupOrbit::Meetup do
           "id" => "ignore_me",
           "name" => "Event Owner"
         },
-        "created" => 1624827600,
+        "created" => 1626337372000,
         "response" => "maybe"
       },
       {
@@ -313,7 +313,7 @@ RSpec.describe MeetupOrbit::Meetup do
           "id" => "abc1234",
           "name" => "Spock"
         },
-        "created" => 1624827600,
+        "created" => 1626337372000,
         "response" => "yes"
       },
       {
@@ -328,7 +328,7 @@ RSpec.describe MeetupOrbit::Meetup do
           "id" => "abc1234",
           "name" => "Spock"
         },
-        "created" => 1626728400,
+        "created" => 1626337372000,
         "response" => "yes"
       }
     ]
