@@ -57,7 +57,7 @@ module MeetupOrbit
     end
 
     def get_events
-      url = URI("https://api.meetup.com/#{@meetup_urlname}/events")
+      url =  @historical_import ? URI("https://api.meetup.com/#{@meetup_urlname}/events?status=past,upcoming") :  URI("https://api.meetup.com/#{@meetup_urlname}/events")
 
       https = Net::HTTP.new(url.host, url.port)
       https.use_ssl = true
